@@ -70,12 +70,15 @@ public class GrilController {
     @RequestMapping("/find")
     public String find(Model model,Long id,String name) {
        // Gril gril = grilService.findById(id);
+        System.out.println("id:"+id+"--"+"name:"+name);
+        if (("".equals(id)||id==null)&&("".equals(name))){
+            return "redirect:/list";}
+        else {
         List<Gril> gril = grilService.findByIdOrName(id,name);
         model.addAttribute("grils", gril);
         System.out.println(
-                gril.toString()
-        );
-        return "user/list";
+                gril.toString());
+        return "user/list";}
     }
     @RequestMapping("/find1")
     public String findByNameLike(Model model,String name) {

@@ -31,9 +31,9 @@ public class GrilService {
 
 
 
-    public List<Gril> find(String id, String name){
+   /* public List<Gril> find(String id, String name){
         return grilRepository.find(id,name);
-    }
+    }*/
 
     public List<Gril> findAll(){
         return grilRepository.findAll();
