@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>userList</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}"></link>
+</head>
+<body class="container">
+<div class="row">
+    <div class="col-md-4"><span th:text="${book}">登录</span></div>
+</div>
+<br/>
+<h1>用户列表</h1>
+<br/><br/>
+<div class="with:80%">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Id</th>
+            <th>Name</th>
+
+            <th>Age</th>
+            <!-- <th>age</th>-->
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user,userStart : ${grils}">
+
+            <th th:text="${userStart.count}">1</th>
+
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}">neo</td>
+            <td th:text="${user.age}">6</td>
+            <!-- <td th:if="${user.age <18}">age</td>-->
+            <td><a th:href="@{/toEdit(id=${user.id})}">edit</a></td>
+            <td><a th:href="@{/delete(id=${user.id})}">delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div class="form-group">
+    <div class="col-sm-2 control-label">
+        <a href="/toAdd" th:href="@{/toAdd}" class="btn btn-info">add</a>
+    </div>
+</div>
+
+<form class="form-inline" th:action="@{/find(id=${id})}">
+    <div class="form-group">
+        <label for="exampleInputName2">Id</label>
+        <input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe" name="id">
+        <label for="exampleInputName3">Name</label>
+        <input type="text" class="form-control" id="exampleInputName3" placeholder="Jane Doe" name="name">
+    </div>
+    <button type="submit" class="btn btn-default">查询</button>
+</form>
+<br/>
+<form class="form-inline" th:action="@{/find1(id=${id})}">
+<div class="form-group">
+    <label for="exampleInputName4">Name</label>
+    <input type="text" class="form-control" id="exampleInputName4" placeholder="Jane Doe" name="name">
+</div>
+<button type="submit" class="btn btn-default">查询</button>
+</form>
+
+</body>
+</html>
