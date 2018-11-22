@@ -12,5 +12,8 @@ spring:
   thymeleaf:
     cache: false
 logging:
-
   file: log\mylog.log
+  level:
+    xatu.zsl: debug
+    org.springfromework.web: info
+    org.hibernate: error
