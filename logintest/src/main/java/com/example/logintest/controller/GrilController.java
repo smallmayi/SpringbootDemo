@@ -3,6 +3,8 @@ package com.example.logintest.controller;
 
 import com.example.logintest.domain.Gril;
 import com.example.logintest.service.GrilService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,8 @@ import java.util.List;
 
 @Controller
 public class GrilController {
+
+    private static Logger logger = LoggerFactory.getLogger(GrilController.class);
 
     @Resource
     private GrilService grilService;
@@ -27,6 +31,7 @@ public class GrilController {
        // System.out.println("loginName:"+loginName);
         /*mv.setViewName();*/
         request.setAttribute("book","springboot");
+        logger.info("login success");
         return "redirect:/list";
     }
     @RequestMapping("/list")
